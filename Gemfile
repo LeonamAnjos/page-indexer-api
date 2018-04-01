@@ -32,6 +32,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'shoulda-matchers', '~> 3.0', require: false
+  gem 'database_cleaner', '~> 1.6', '>= 1.6.2'
 end
 
 group :development do
@@ -46,3 +47,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jsonapi-resources', '~> 0.9.0'
+gem 'jsonapi-utils', '~> 0.7.1'
