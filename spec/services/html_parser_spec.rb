@@ -4,24 +4,24 @@ RSpec.describe HtmlParser, type: :service do
     subject(:indexer) { HtmlParser.new(html) }
     let(:html) { file_fixture("simple_page.html").read }
     
-    describe '#get_content_of' do
-        subject { indexer.get_content_of(tag) }
+    describe '#contents_of_tag' do
+        subject { indexer.contents_of_tag(tag) }
         
-        context 'tag h1' do
+        context 'when exists tag h1' do
             let(:tag) { 'h1' }
             let(:h1) { ["First Heading", "This is heading 1 (1)"] }
 
             it { is_expected.to match_array h1}
         end
 
-        context 'tag h2' do
+        context 'when exists tag h2' do
             let(:tag) { 'h2' }
             let(:h2) { ["This is heading 2 (1.1)", "This is heading 2 (1.2)"] }
             
             it { is_expected.to match_array h2}
         end
         
-        context 'tag h3' do
+        context 'when exists tag h3' do
             let(:tag) { 'h3' }
             let(:h3) do 
                 [
@@ -41,11 +41,13 @@ RSpec.describe HtmlParser, type: :service do
         end
     end
 
-    describe '#get_links' do
-        let(:links) { ["https://github.com/LeonamAnjos", "https://www.example.com"] }
-
-        it 'should return only links' do
-            expect(subject.get_links).to match_array(links)
-        end 
+    describe '#links' do
+        subject { indexer.links }
+    
+        context 'when exists link' do
+            let(:links) { ["https://github.com/LeonamAnjos", "https://www.example.com"] }
+        
+            it { is_expected.to match_array links }
+        end
     end
 end

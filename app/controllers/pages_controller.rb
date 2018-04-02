@@ -12,11 +12,11 @@ class PagesController < ApplicationController
   def create
     page = Page.new(resource_params)
     content = open(page.url)
-    indexer = HtmlParser.new(content)
-    page.h1 = indexer.get_content_of('h1')
-    page.h2 = indexer.get_content_of('h2')
-    page.h3 = indexer.get_content_of('h3')
-    page.link = indexer.get_links
+    parser = HtmlParser.new(content)
+    page.h1 = parser.contents_of_tag('h1')
+    page.h2 = parser.contents_of_tag('h2')
+    page.h3 = parser.contents_of_tag('h3')
+    page.link = parser.links
 
     if page.save
       jsonapi_render json: page, status: :created
