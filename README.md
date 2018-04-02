@@ -2,7 +2,7 @@
 
 ### Introduction
 
-Page Indexer parse the content of tags *h1, h2, h3*, and *links* of a HTML and keep it to further references. It is written in Ruby on Rails and it is [JsonAPI](http://jsonapi.org) compatible.
+Page Indexer parse the content of tags *h1, h2, h3*, and *links* of a HTML and keep it to future queries. It is written in Ruby on Rails and it is [JsonAPI](http://jsonapi.org) compatible.
 
 ### Solution
 The application has two main endpoints:
@@ -10,7 +10,7 @@ The application has two main endpoints:
 - ___GET /pages___ - list all URL parsed.
 
 ### Installation
-Download _Page Indexer_ project from [GitHub] (https://github.com/LeonamAnjos/page-indexer-api) or clone it with following command:
+Download _Page Indexer_ project from [GitHub](https://github.com/LeonamAnjos/page-indexer-api) or clone it with following command:
 
 ```sh
 $ git clone https://github.com/LeonamAnjos/page-indexer-api.git
@@ -31,5 +31,5 @@ $ curl -i -H "Accept: application/vnd.api+json" -H 'Content-Type:application/vnd
 
 Run the script below to list all parsed pages:
 ```sh
-$ curl -i -H "Accept: application/vnd.api+json" -H 'Content-Type:application/vnd.api+json' -X GET -d '{"data": {"type":"pages", "attributes":{}}}' http://localhost:3000/pages
+$ curl -i -H "Accept: application/vnd.api+json" -H 'Content-Type:application/vnd.api+json' -X GET -d '{"data": {"type":"pages"}' http://localhost:3000/pages
 ```
