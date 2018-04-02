@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def create
     page = Page.new(resource_params)
     content = open(page.url)
-    indexer = HtmlIndexer.new(content)
+    indexer = HtmlParser.new(content)
     page.h1 = indexer.get_content_of('h1')
     page.h2 = indexer.get_content_of('h2')
     page.h3 = indexer.get_content_of('h3')

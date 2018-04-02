@@ -1,4 +1,4 @@
-class HtmlIndexer
+class HtmlParser
     attr_reader :html
 
     def initialize(html)

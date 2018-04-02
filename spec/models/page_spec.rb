@@ -28,7 +28,15 @@ RSpec.describe Page, type: :model do
     end
     
     context 'when content is not empty' do
-      subject { Page.new(url: 'http://example.com/', h1: ['one'], h2: ['one', 'two'], h3: ['one', 'two', 'three'], link: ['http://first.com', 'http://second.com'])}
+      subject do
+        Page.new(
+           url: 'http://example.com/',
+           h1: ['one'], 
+           h2: ['one', 'two'], 
+           h3: ['one', 'two', 'three'], 
+           link: ['http://first.com', 'http://second.com']
+        )
+      end
       
       it 'should have value for h1 content' do
         expect(subject.h1).to eq(["one"]) 
